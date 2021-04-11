@@ -10,6 +10,39 @@
     mov V0, 15
     draw V0, V1, 5
 
+    mov I, .oSpr
+    mov V0, 20
+    draw V0, V1, 5
+
+    mov I, .uSpr
+    mov V0, 25
+    draw V0, V1, 5
+
+    mov I, .pSpr
+    mov V0, 30
+    draw V0, V1, 5
+
+    mov I, .fiveSpr
+    mov V0, 36
+    draw V0, V1, 5
+
+    mov I, .gSpr
+    mov V0, 30
+    mov V1, 15 
+    draw V0, V1, 5
+
+    mov I, .aSpr
+    mov V0, 35 
+    draw V0, V1, 5
+
+    mov I, .mSpr
+    mov V0, 40 
+    draw V0, V1, 5
+
+    mov I, .eSpr
+    mov V0, 46 
+    draw V0, V1, 5
+    
 .end:
     jmp .end
 
