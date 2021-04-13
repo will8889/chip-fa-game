@@ -42,7 +42,56 @@
     mov I, .eSpr
     mov V0, 46 
     draw V0, V1, 5
-    
+
+    jmp .titleMove
+
+.titleMove:
+    mov V2, 9
+    mov V0, 32
+    mov V1, 26
+    kneq V2
+    jmp .gameScreen
+    jmp .titleMove
+
+.gameScreen:
+    clear
+    mov I, .characterSpr
+    draw V0, V1, 5
+    mov V3, 1
+    jmp .controller
+
+
+.goLeft:
+    sub V0, V3
+    jmp .gameScreen
+
+.goRight:
+    add V0, V3
+    jmp .gameScreen
+
+.goUp:
+    sub V1 , V3
+    jmp .gameScreen
+
+.goDown:
+    add V1, V3
+    jmp .gameScreen
+
+.controller:
+    mov V4, 8
+    kneq V4
+    jmp .goLeft
+    mov V5, 10
+    kneq V5
+    jmp .goRight
+    mov V6, 5
+    kneq V6 
+    jmp .goUp
+    mov V7, 9
+    kneq V7
+    jmp .goDown
+    jmp .controller
+
 .end:
     jmp .end
 
@@ -51,7 +100,7 @@
     .spr "x       "
     .spr "x xx    "
     .spr "x  x    "
-    .spr "xxxx    "
+    .spr "xxxx    " 
 
 .rSpr:
     .spr "xxx     "
@@ -88,7 +137,6 @@
     .spr "   x    "
     .spr "xxx     "
 
-
 .aSpr:
     .spr " xx     "
     .spr "x  x    "
@@ -96,14 +144,12 @@
     .spr "x  x    "
     .spr "x  x    "
 
-
 .mSpr:
     .spr "xxxxx   "
     .spr "x x x   "
     .spr "x x x   "
     .spr "x x x   "
     .spr "x x x   "
-
 
 .eSpr:
     .spr "xxxx    "
@@ -113,11 +159,11 @@
     .spr "xxxx    "
 
 .characterSpr:
-    .spr "   xx   "
-    .spr "   xx   "
-    .spr " xxxxxx "
-    .spr "xxxxxxxx"
-    .spr "  xxxx  "
+    .spr "  xxx   "
+    .spr "   x    "
+    .spr " xxxxx  "
+    .spr "x  x  x "
+    .spr " xx xx  "
 
 .objectSpr:
     .spr "  xxxx  "
