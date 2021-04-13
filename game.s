@@ -50,30 +50,40 @@
     mov V0, 32
     mov V1, 26
     kneq V2
-    jmp .gameScreen
+    jmp .spawnCookie
     jmp .titleMove
 
 .gameScreen:
-    clear
     mov I, .characterSpr
     draw V0, V1, 5
     mov V3, 1
     jmp .controller
 
+.spawnCookie:
+    clear
+    mov I, .cookieSpr
+    rnd V8, 80
+    rnd V9, 60
+    draw V8, V9, 5
+    jmp .gameScreen
 
 .goLeft:
+    draw V0, V1, 5
     sub V0, V3
     jmp .gameScreen
 
 .goRight:
+    draw V0, V1, 5
     add V0, V3
     jmp .gameScreen
 
 .goUp:
+    draw V0, V1, 5
     sub V1 , V3
     jmp .gameScreen
 
 .goDown:
+    draw V0, V1, 5
     add V1, V3
     jmp .gameScreen
 
@@ -171,3 +181,10 @@
     .spr "xxxxxxxx"
     .spr "xxxxxxxx"
     .spr " xxxxxx "
+
+.cookieSpr:
+    .spr "  XXXXX "
+    .spr " XX XX X"
+    .spr " XXXXX X"
+    .spr " XX XXXX"
+    .spr "  XXXXX "
