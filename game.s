@@ -46,7 +46,6 @@
     mov I, .eSpr
     mov V0, 46 
     draw V0, V1, 5
-
     jmp .titleMove
 
 .titleMove:
@@ -69,8 +68,6 @@
     kneq V7
     jmp .spawnCookie
     jmp .titleMove
-
-    jmp .collisionDetection
 
 .spawnCookie:
     clear
