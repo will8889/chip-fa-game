@@ -90,7 +90,7 @@
     mov I, .characterSpr
     draw V6, V7, 5
     mov I, .cookieSpr
-    rnd V8, 45
+    rnd V8, 40
     rnd V9, 25
     draw V8, V9, 5
     mov V5, 0
@@ -98,6 +98,8 @@
     jmp .collisionDetection
 
 .goLeft:
+    neq V6, 0
+    jmp .controller
     mov VC, 1
     mov I, .characterSpr
     draw V6, V7, 5
@@ -106,6 +108,8 @@
     jmp .collisionDetection
 
 .goRight:
+    neq V6, 57
+    jmp .controller
     mov VC, 1
     mov I, .characterSpr
     draw V6, V7, 5
@@ -114,6 +118,8 @@
     jmp .collisionDetection
 
 .goUp:
+    neq V7, 0
+    jmp .controller
     mov VC, 1
     mov I, .characterSpr
     draw V6, V7, 5
@@ -122,6 +128,8 @@
     jmp .collisionDetection
 
 .goDown:
+    neq V7, 27
+    jmp .controller
     mov VC, 1
     mov I, .characterSpr
     draw V6, V7, 5
