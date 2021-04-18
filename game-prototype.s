@@ -49,6 +49,14 @@
 
     jmp .titleMove
 
+.zeroCreate:
+    mov I, .0Spr
+    draw V3, V4, 5
+    mov I, 000
+    bcd V5
+    ldm V2
+    ret
+
 .bcd:
     mov V3, 54
     mov V4, 1
@@ -56,11 +64,18 @@
     bcd V5
     ldm V2
     chr V1
+    neq V1, 0
+    call .zeroCreate
+    eq V1, 0
     draw V3, V4, 5
     add V3, 5
     chr V2
+    neq V2, 0
+    call .zeroCreate
+    eq V2, 0
     draw V3, V4, 5
     ret
+
 
 .titleMove:
     mov V6, 32
@@ -219,6 +234,13 @@
     .spr "x       "
     .spr "xxxx    "
     .spr "x       "
+    .spr "xxxx    "
+
+.0Spr:
+    .spr "xxxx    "
+    .spr "x  x    "
+    .spr "x  x    "
+    .spr "x  x    "
     .spr "xxxx    "
 
 .characterSpr:
