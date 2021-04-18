@@ -75,13 +75,21 @@
     eq V2, 0
     draw V3, V4, 5
     ret
-
-
+        
 .titleMove:
     mov V6, 32
     mov V7, 26
-    mov VC, 5
-    kneq VC
+    mov VA, 5
+    kneq VA
+    jmp .spawnCookie
+    mov VA, 8
+    kneq VA
+    jmp .spawnCookie
+    mov VA, 9
+    kneq VA
+    jmp .spawnCookie
+    mov VA, 10
+    kneq VA
     jmp .spawnCookie
     jmp .titleMove
 
@@ -100,58 +108,58 @@
 .goLeft:
     neq V6, 0
     jmp .controller
-    mov VC, 1
+    mov VA, 1
     mov I, .characterSpr
     draw V6, V7, 5
-    sub V6, VC
+    sub V6, VA
     draw V6, V7, 5
     jmp .collisionDetection
 
 .goRight:
     neq V6, 57
     jmp .controller
-    mov VC, 1
+    mov VA, 1
     mov I, .characterSpr
     draw V6, V7, 5
-    add V6, VC
+    add V6, VA
     draw V6, V7, 5
     jmp .collisionDetection
 
 .goUp:
     neq V7, 0
     jmp .controller
-    mov VC, 1
+    mov VA, 1
     mov I, .characterSpr
     draw V6, V7, 5
-    sub V7 , VC
+    sub V7 , VA
     draw V6, V7, 5
     jmp .collisionDetection
 
 .goDown:
     neq V7, 27
     jmp .controller
-    mov VC, 1
+    mov VA, 1
     mov I, .characterSpr
     draw V6, V7, 5
-    add V7, VC
+    add V7, VA
     draw V6, V7, 5
     jmp .collisionDetection
 
 .controller:
-    mov VC, 5
-    kneq VC 
+    mov VA, 5
+    kneq VA 
     jmp .goUp
 
-    mov VC, 8
-    kneq VC
+    mov VA, 8
+    kneq VA
     jmp .goLeft
 
-    mov VC, 9
-    kneq VC
+    mov VA, 9
+    kneq VA
     jmp .goDown
 
-    mov VC, 10
-    kneq VC
+    mov VA, 10
+    kneq VA
     jmp .goRight
 
     jmp .controller
@@ -164,8 +172,8 @@
     rnd V8, 45
     rnd V9, 25
     draw V8, V9, 5
-    mov VE, 1
-    ssnd VE
+    mov VB, 1
+    ssnd VB
     call .bcd
     add V5, 1
     call .bcd
